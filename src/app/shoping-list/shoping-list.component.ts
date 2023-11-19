@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Ingridient } from '../../shared/Ingridients.model';
+import { Ingridient } from '../../shared/Ingridient.model';
 
 @Component({
   selector: 'app-shoping-list',
@@ -8,10 +8,14 @@ import { Ingridient } from '../../shared/Ingridients.model';
 })
 export class ShopingListComponent {
   ingridients: Ingridient[] = [
-    new Ingridient('A Test', 2),
-    new Ingridient('A Test', 3),
-    new Ingridient('A Test', 4),
-    new Ingridient('A Test', 5),
-    new Ingridient('A Test', 6),
+    new Ingridient('Banana', 2),
+    new Ingridient('Cocaine', 3),
+    new Ingridient('Vegitables', 4),
+    new Ingridient('Better Cocaine', 5),
+    new Ingridient('Beer', 6),
+    new Ingridient('And Definitely Cocaine!', 7),
   ];
+  onIngridientAdded(ingridient: Ingridient) {
+    this.ingridients.push(ingridient);
+  }
 }
