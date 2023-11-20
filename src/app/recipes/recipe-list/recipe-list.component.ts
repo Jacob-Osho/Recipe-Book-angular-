@@ -1,42 +1,16 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Recipe } from '../recipe.model';
+import { RecipeService } from '../recipe.service';
 
 @Component({
   selector: 'app-recipe-list',
   templateUrl: './recipe-list.component.html',
   styleUrl: './recipe-list.component.css',
 })
-export class RecipeListComponent {
-  @Output() recipeSelected = new EventEmitter<Recipe>();
-  recipes: Recipe[] = [
-    new Recipe(
-      'A Test',
-      'this is a test',
-      'https://res.cloudinary.com/oilsbeatstore/image/upload/v1675114887/Cancelled%20Visa/Cancelled%20Visa_Img.jpg'
-    ),
-    new Recipe(
-      'A Test',
-      'this is a test',
-      'https://res.cloudinary.com/oilsbeatstore/image/upload/v1675114887/Cancelled%20Visa/Cancelled%20Visa_Img.jpg'
-    ),
-    new Recipe(
-      'A Test',
-      'this is a test',
-      'https://res.cloudinary.com/oilsbeatstore/image/upload/v1675114887/Cancelled%20Visa/Cancelled%20Visa_Img.jpg'
-    ),
-    new Recipe(
-      'A Test',
-      'this is a test',
-      'https://res.cloudinary.com/oilsbeatstore/image/upload/v1675114887/Cancelled%20Visa/Cancelled%20Visa_Img.jpg'
-    ),
-    new Recipe(
-      'A Test',
-      'this is a test',
-      'https://res.cloudinary.com/oilsbeatstore/image/upload/v1675114887/Cancelled%20Visa/Cancelled%20Visa_Img.jpg'
-    ),
-  ];
-
-  OnRecipeSelected(recipe: Recipe) {
-    this.recipeSelected.emit(recipe);
+export class RecipeListComponent implements OnInit {
+  recipes: Recipe[];
+  constructor(private recipeService: RecipeService) {}
+  ngOnInit(): void {
+    this.recipes = this.recipeService.getRecipes();
   }
 }
