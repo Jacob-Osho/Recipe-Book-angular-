@@ -6,7 +6,6 @@ import { ShopingListService } from './shopping-list.service';
   selector: 'app-shoping-list',
   templateUrl: './shoping-list.component.html',
   styleUrl: './shoping-list.component.css',
-  providers: [ShopingListService],
 })
 export class ShopingListComponent implements OnInit {
   ingridients: Ingridient[];
